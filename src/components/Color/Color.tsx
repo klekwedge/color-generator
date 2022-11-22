@@ -2,23 +2,13 @@ import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 interface ColorProps {
-  rgb: number[];
+  hex: string;
 }
 
-function Color({ rgb }: ColorProps) {
-  const [color, setColor] = useState("");
-
-  useEffect(() => {
-    const r = rgb[0];
-    const g = rgb[1];
-    const b = rgb[2];
-    const color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
-    setColor(color);
-  }, []);
-
+function Color({ hex }: ColorProps) {
   return (
     <Flex
-      backgroundColor={color}
+      backgroundColor={`#${hex}`}
       w='14%'
       h="150px"
       cursor="pointer"
@@ -27,7 +17,7 @@ function Color({ rgb }: ColorProps) {
       alignItems="center"
       _hover={{ transform: "scale(1.1)" }}
     >
-      {color}
+      #{hex}
     </Flex>
   );
 }

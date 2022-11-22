@@ -7,7 +7,9 @@ import Values from "values.js";
 import Header from "../Header/Header";
 
 function Palette() {
-  const [list, setList] = useState(new Values("#ffffff").all(10));
+  const [list, setList] = useState(new Values('red').all(10));
+
+  console.log(list);
 
   const genRanHex = () => {
     return '#' + [...Array(6)]
@@ -17,7 +19,6 @@ function Palette() {
 
   const changeList = () => {
     const color = new Values(genRanHex()).all(10);
-    // console.log(new Values('red').all(10));
     setList(color);
   };
 
@@ -26,7 +27,7 @@ function Palette() {
       <Header changeList={changeList} />
       <Flex wrap="wrap">
         {list.map((item) => (
-          <Color key={uuidv4()} rgb={item.rgb} />
+          <Color key={uuidv4()} hex={item.hex}/>
         ))}
       </Flex>
     </>
