@@ -2,18 +2,17 @@ import { Box, Button, Flex, Heading, Input } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 
 interface HeaderProps {
-  changeList: () => void;
+  validInput: boolean;
+  changeList: (number: string) => void;
+  changeListWithRandomValue: () => void;
 }
 
-function Header({ changeList }: HeaderProps) {
-  const [valid, setValid] = useState(true);
+function Header({
+  validInput,
+  changeList,
+  changeListWithRandomValue,
+}: HeaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-
-  const validateInput = () => {
-    if (inputRef.current) {
-      setValid(/f/.test(inputRef.current.value));
-    }
-  };
 
   return (
     <Box textAlign="center">
@@ -27,15 +26,23 @@ function Header({ changeList }: HeaderProps) {
           borderColor="black"
           _placeholder={{ color: "black" }}
           errorBorderColor="red.300"
-          isInvalid={!valid}
+          isInvalid={!validInput}
           ref={inputRef}
         />
-        <Button onClick={validateInput}>Generate</Button>
-        <Button onClick={(changeList)}>Random</Button>
+        <Button
+          onClick={() => {
+            if (inputRef.current) {
+              changeList(inputRef.current.value);
+            }
+          }}
+        >
+          Generate
+        </Button>
+        <Button onClick={changeListWithRandomValue}>Random</Button>
       </Flex>
 
       <Heading as="h2" fontWeight="400" fontSize="18" fontStyle="italic">
-        {valid ? (
+        {validInput ? (
           "rgb, hex, color name, etc."
         ) : (
           <span style={{ color: "red" }}>Error input</span>

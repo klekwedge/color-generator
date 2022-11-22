@@ -7,27 +7,44 @@ import Values from "values.js";
 import Header from "../Header/Header";
 
 function Palette() {
-  const [list, setList] = useState(new Values('red').all(10));
-
-  console.log(list);
+  const [list, setList] = useState(new Values("red").all(10));
+  const [validInput, setValid] = useState(true);
 
   const genRanHex = () => {
-    return '#' + [...Array(6)]
-      .map(() => Math.floor(Math.random() * 16).toString(16))
-      .join("");
+    return (
+      "#" +
+      [...Array(6)]
+        .map(() => Math.floor(Math.random() * 16).toString(16))
+        .join("")
+    );
   };
 
-  const changeList = () => {
+  const changeListWithRandomValue = () => {
     const color = new Values(genRanHex()).all(10);
     setList(color);
+    setValid(true);
+  };
+
+  const changeList = (newValue: string) => {
+    try {
+      const color = new Values(newValue).all(10);
+      setList(color);
+      setValid(true);
+    } catch {
+      setValid(false);
+    }
   };
 
   return (
     <>
-      <Header changeList={changeList} />
+      <Header
+        changeListWithRandomValue={changeListWithRandomValue}
+        changeList={changeList}
+        validInput={validInput}
+      />
       <Flex wrap="wrap">
         {list.map((item) => (
-          <Color key={uuidv4()} hex={item.hex}/>
+          <Color key={uuidv4()} hex={item.hex} />
         ))}
       </Flex>
     </>
