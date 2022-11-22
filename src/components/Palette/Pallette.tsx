@@ -7,7 +7,7 @@ import Values from "values.js";
 import Header from "../Header/Header";
 
 function Palette() {
-  const [list, setList] = useState(new Values("red").all(10));
+  const [list, setList] = useState(new Values("green").all(10));
   const [validInput, setValid] = useState(true);
 
   const genRanHex = () => {

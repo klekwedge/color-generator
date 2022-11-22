@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading, Input } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { BaseSyntheticEvent, useRef, useState } from "react";
 
 interface HeaderProps {
   validInput: boolean;
@@ -13,6 +13,12 @@ function Header({
   changeListWithRandomValue,
 }: HeaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const inputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.code === 'Enter' && inputRef.current) {
+      changeList(inputRef.current.value);
+    }
+  };
 
   return (
     <Box textAlign="center">
@@ -28,6 +34,7 @@ function Header({
           errorBorderColor="red.300"
           isInvalid={!validInput}
           ref={inputRef}
+          onKeyDown={(e) => inputKeyDown(e)}
         />
         <Button
           onClick={() => {
