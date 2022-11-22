@@ -11,7 +11,7 @@ function App() {
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
-      gap='50px'
+      gap='30px'
     >
       <Header />
       <Palette />
