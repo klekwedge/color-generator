@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading, Input } from "@chakra-ui/react";
-import { BaseSyntheticEvent, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 function Header() {
   const [valid, setValid] = useState(true);
