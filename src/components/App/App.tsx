@@ -1,11 +1,21 @@
+import { Flex } from "@chakra-ui/react";
+import Header from "../Header/Header";
 import Palette from "../Palette/Pallette";
-import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <Flex
+      w="100vw"
+      h="100vh"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      gap='50px'
+    >
+      <Header />
       <Palette />
-    </div>
+    </Flex>
   );
 }
 

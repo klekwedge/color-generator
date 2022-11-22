@@ -15,10 +15,13 @@ function Color() {
   return (
     <Flex
       backgroundColor={color}
-      w="70px"
-      h="60px"
+      flex='1 1 14%'
+      h='150px'
+      cursor='pointer'
+      transition='all 0.5s ease'
       justifyContent="center"
       alignItems="center"
+      _hover={{transform: 'scale(1.1)'}}
     >
       {color}
     </Flex>

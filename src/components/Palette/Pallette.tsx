@@ -6,7 +6,7 @@ function Palette() {
   let template = Array(21).fill(null);
 
   return (
-    <Flex maxW="500" wrap="wrap">
+    <Flex wrap="wrap">
       {template.map((item) => (
         <Color key={uuidv4()} />
       ))}
