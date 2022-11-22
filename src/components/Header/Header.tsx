@@ -1,7 +1,11 @@
 import { Box, Button, Flex, Heading, Input } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 
-function Header() {
+interface HeaderProps {
+  changeList: () => void;
+}
+
+function Header({ changeList }: HeaderProps) {
   const [valid, setValid] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -27,6 +31,7 @@ function Header() {
           ref={inputRef}
         />
         <Button onClick={validateInput}>Generate</Button>
+        <Button onClick={(changeList)}>Random</Button>
       </Flex>
 
       <Heading as="h2" fontWeight="400" fontSize="18" fontStyle="italic">

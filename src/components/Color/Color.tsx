@@ -19,7 +19,7 @@ function Color({ rgb }: ColorProps) {
   return (
     <Flex
       backgroundColor={color}
-      flex="1 1 14%"
+      w='14%'
       h="150px"
       cursor="pointer"
       transition="all 0.5s ease"
