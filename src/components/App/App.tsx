@@ -12,6 +12,7 @@ function App() {
       alignItems="center"
       flexDirection="column"
       gap="30px"
+      p='0px 10px'
     >
       <Palette />
     </Flex>

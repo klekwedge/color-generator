@@ -42,7 +42,7 @@ function Palette() {
         changeList={changeList}
         validInput={validInput}
       />
-      <Flex wrap="wrap">
+      <Flex wrap="wrap" justifyContent='center' alignItems='center'>
         {list.map((item) => (
           <Color key={uuidv4()} hex={item.hex} />
         ))}

@@ -10,6 +10,8 @@ function Color({ hex }: ColorProps) {
     <Flex
       backgroundColor={`#${hex}`}
       w='14%'
+      minW='100px'
+      maxW='270px'
       h="150px"
       cursor="pointer"
       transition="all 0.5s ease"
