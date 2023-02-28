@@ -30,7 +30,7 @@
 ### Ссылки
 
 - [Ссылка на проект](https://github.com/klekwedge/color-generator)
-- [Деплой](klekwedge-color-generator.vercel.app)
+- [Деплой](https://klekwedge-color-generator.vercel.app/)
 
 ## Мой процесс
 
