@@ -1,4 +1,4 @@
-# Todo
+# Color generator
 
 Вы также можете прочитать этот README на [английском](https://github.com/klekwedge/color-generator/blob/main/README.md)
 
