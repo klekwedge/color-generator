@@ -1,23 +1,21 @@
 import { Flex } from "@chakra-ui/react";
-import Color from "../Color/Color";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 import Values from "values.js";
+import Color from "../Color/Color";
 import Header from "../Header/Header";
 
 function Palette() {
   const [list, setList] = useState(new Values("green").all(10));
   const [validInput, setValid] = useState(true);
 
-  const genRanHex = () => {
-    return (
-      "#" +
+  const genRanHex = () => (
+      `#${ 
       [...Array(6)]
         .map(() => Math.floor(Math.random() * 16).toString(16))
-        .join("")
+        .join("")}`
     );
-  };
 
   const changeListWithRandomValue = () => {
     const color = new Values(genRanHex()).all(10);

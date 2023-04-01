@@ -1,5 +1,4 @@
 import { Flex } from "@chakra-ui/react";
-import Header from "../Header/Header";
 import Palette from "../Palette/Pallette";
 
 function App() {
